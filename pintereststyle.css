@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+:root {
+  --c-pinBlack: #111111;
+  --c-lightGray: #eeeeee;
+  --c-icons: #767676;
+  --r-16: 16px;
+  --r-8: 8px;
+  --r-circle: 50%;
+  --r-pill: 999px;
+}
+*,
+html,
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  color: var(--c-pinBlack);
+}
+/* body {
+  font-size: 1.6rem;
+} */
+/* navbars */
+nav {
+  background-color: #fff;
+  font-weight: 700;
+}
+.webLogo {
+  width: 32px;
+  height: 32px;
+}
+.nav-bar {
+  display: none;
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+  z-index: 1;
+}
+div.nav-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 8px 16px;
+}
+.nav-mobile i.bx,
+.nav-bar i.bx {
+  font-size: 2.4rem;
+  color: var(--c-icons);
+}
+/* main */
+main {
+  width: 100%;
+  height: auto;
+  padding: 8px;
+}
+.mansoryGallery {
+  column-count: 2;
+}
+.mG {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: white;
+  border-radius: var(--r-16);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+.mG > img {
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+
+  /*   grid-column: 2; */
+}
+
+/* medias */
+@media only screen and (width > 425px) {
+  div.nav-mobile {
+    display: none;
+  }
+  div.nav-bar {
+    display: block;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+  }
+  nav {
+    position: absolute;
+    z-index: 1;
+  }
+  nav > .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 8px 16px;
+  }
+  main {
+    margin-top: 85px;
+  }
+  .mansoryGallery {
+    column-count: 3;
+    /*     grid-template-columns: repeat(3, 1fr); */
+  }
+  /*   nav dropdown */
+  .nav-bar--list {
+    position: relative;
+    display: inline-block;
+  }
+  .nb--list-Content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: var(--r-16);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 8px;
+    width: 160px;
+    left: -70%;
+    margin-top: 16px;
+  }
+  .nb--list-Content li {
+    padding: 8px;
+  }
+  li#active {
+    background-color: var(--c-lightGray);
+    border-radius: var(--r-8);
+  }
+  .nav-bar--list:hover .nb--list-Content {
+    display: block;
+  }
+  .nav-bar--list > span:hover {
+    background-color: var(--c-pinBlack);
+    color: #fff;
+  }
+  /*   padding icons nav */
+  .nav-bar--list > span,
+  .nav-search,
+  .nav-user {
+    padding: 14px;
+    border-radius: var(--r-pill);
+    background-color: #fff;
+  }
+  .nav-bar--list > span,
+  .nav-search,
+  .nav-user i {
+    margin: 0 8px;
+  }
+  .nav-search {
+    background-color: var(--c-lightGray);
+    flex-grow: 3;
+  }
+  .nav-search:after {
+    content: "Buscar";
+    vertical-align: 30%;
+    color: var(--c-icons);
+    font-weight: 600;
+  }
+}
+/*hover info*/
+.mG:hover > :first-child {
+  filter: brightness(60%);
+}
+.button {
+  position: absolute;
+  left: 90;
+  top: 5;
+  margin: 10px;
+  padding: 13px 15px;
+  background-color: #e60023;
+  border-radius: 30px;
+  border: none;
+  visibility: hidden;
+  display: none;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+.mG:hover .button,
+.mG:hover .hvbtn{
+  visibility: visible;
+  display: block;
+}
+.hvbtn1, .hvbtn2{
+    background-color: white;
+    font-size: 30px;
+    border-radius: 50px;
+    color: black;
+    font-weight: bold;
+    padding: 4px;
+    visibility: hidden;
+    display: none;
+}
+.hvbtn1 {
+    position: absolute;
+    left: 60%;
+    bottom: 10%;
+}
+.hvbtn2{
+    position: absolute;
+    left: 78%;
+    bottom: 8%;
+}
+
+/*-------------------------medias-------------------------*/
+@media only screen and (width < 492px) {
+  .nav-search:after {
+    content: "";
+  }
+}
+@media only screen and (width > 800px) {
+  .mansoryGallery {
+    column-count: 4;
+    /*     grid-template-columns: repeat(4, 1fr); */
+  }
+}
+@media only screen and (width > 1000px) {
+  .mansoryGallery {
+    column-count: 5;
+    /*     grid-template-columns: repeat(5, 1fr); */
+  }
+}
